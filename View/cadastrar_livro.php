@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ano_publicacao = $_POST['ano_publicacao'];
     $descricao = $_POST['descricao'];
 
-    if (empty($título) || empty($autor) || empty($genero) || empty($ano_publicacao) || empty($descricao)) {
+    if (empty($título) || empty($autor) || empty($genero) || empty($ano_publicacao) || empty($descricao)) || !is_numeric($ano_publicacao) {
         echo "Todos os campos são obrigatórios.";
     } else {
         $sql = "INSERT INTO livros (titulo, autor, genero, ano_publicacao, descricao) VALUES (:titulo, :autor, :genero, :ano_publicacao, :descricao)";
